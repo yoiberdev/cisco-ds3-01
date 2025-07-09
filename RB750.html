@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="RouterBoard MikroTik RB750 - Router SOHO de 5 puertos Fast Ethernet, CPU 400MHz, 32MB RAM, RouterOS Level 4. Ideal para pequeñas oficinas y hogares." />
+  <meta name="keywords"
+    content="MikroTik RB750, RouterBoard, router SOHO, 5 puertos ethernet, Fast Ethernet, RouterOS, MPLS, 400MHz, 32MB RAM, ds3comunicaciones, Peru" />
+  <meta name="author" content="ds3comunicaciones" />
+  <!-- tailwind cdn -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- fontawesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .scrollbar-hide {
+      scrollbar-width: none; /* Para Firefox */
+      -ms-overflow-style: none; /* Para IE y Edge */
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none; /* Para Chrome, Safari y Opera */
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .product-card {
+      transition: all 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .spec-item {
+      transition: all 0.2s ease;
+    }
+    
+    .spec-item:hover {
+      background-color: #f8fafc;
+      transform: translateX(4px);
+    }
+  </style>
+
+  <title>
+    RouterBoard MikroTik RB750 - Router SOHO 5 puertos Fast Ethernet, CPU 400MHz, 32MB RAM, RouterOS Level 4
+  </title>
+</head>
+
+<body class="bg-gray-50">
+  <!-- NAVBAR RESPONSIVE -->
+  <nav class="bg-white w-full shadow-md border-b">
+    <div class="container mx-auto px-4">
+      <!-- Desktop Navbar -->
+      <div class="hidden lg:flex justify-between items-center py-4">
+        <!-- Logo y nombre -->
+        <div class="flex items-center">
+          <img
+            src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
+            alt="NetPeru Logo"
+            class="h-12 mr-3"
+          />
+        </div>
+
+        <!-- Info de contacto -->
+        <div class="flex space-x-8 text-black">
+          <div class="flex items-center">
+            <i class="fas fa-phone-alt mr-2 text-blue-600"></i>
+            <div>
+              <p class="text-sm font-bold">533-4339</p>
+              <p class="text-sm font-bold">994-428-965</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-phone-alt mr-2 text-blue-600"></i>
+            <div>
+              <p class="text-sm font-bold">99653-3223</p>
+              <p class="text-sm font-bold">937-514-867</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope mr-2 text-blue-600"></i>
+            <span class="text-sm font-bold">netperu100@hotmail.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>
+            <span class="text-sm font-bold">Lima, PERÚ</span>
+          </div>
+          <div>
+            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.png" alt="MikroTik" class="h-10" />
+          </div>
+        </div>
+
+        <!-- Botón de búsqueda -->
+        <div class="flex items-center">
+          <button
+            id="search-button"
+            class="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <i class="fas fa-search text-black"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navbar -->
+      <div class="lg:hidden flex flex-col gap-2">
+        <!-- navbar superior  -->
+        <div class="flex justify-between items-center py-2">
+          <!-- div izquierdo -->
+          <div class="flex gap-1">
+            <!-- boton hamburgesa -->
+            <button
+              id="mobile-menu-button"
+              class="p-2 rounded-full hover:bg-gray-300 transition-colors"
+            >
+              <i class="fas fa-bars text-black"></i>
+            </button>
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+              <img
+                src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
+                alt="NetPeru Logo"
+                class="h-10"
+              />
+              <img
+                src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.png"
+                alt="MikroTik Logo"
+                class="h-8"
+              />
+            </div>
+          </div>
+
+          <!-- Botones buscar -->
+          <button
+            id="mobile-search-button"
+            class="p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex gap-3 items-center"
+          >
+            <i class="fas fa-search text-black"></i>
+          </button>
+        </div>
+
+        <!-- navbar inferior -->
+        <div class="py-2 pl-3">
+          <div class="flex items-start">
+            <i class="fas fa-phone-alt mt-1 mr-1 text-blue-600"></i>
+            <p class="">996533223</p>
+            <i class="pl-4 fas fa-phone-alt mt-1 mr-1 text-blue-600"></i>
+            <p class="">994428965</p>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope mr-1 text-blue-600"></i>
+            <span>netperu100@hotmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto hidden"
+    >
+      <!-- Botón de cerrar -->
+      <div class="flex justify-end p-4">
+        <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Contenido del menú -->
+      <div class="px-6 pb-8">
+        <!-- Enlaces MikroTik -->
+        <div class="">
+          <div class="flex flex-wrap justify-start gap-2">
+            <a
+              href="https://www.ds3comunicaciones.com/mikrotik/precios_mikrotik.html"
+              class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            >
+              Lista Completa MikroTik
+            </a>
+            <a
+              href="https://www.ds3comunicaciones.com/mikrotik/routerboard.html"
+              class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            >
+              RouterBoard
+            </a>
+            <a
+              href="https://www.ds3comunicaciones.com/mikrotik/wireless.html"
+              class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            >
+              Wireless
+            </a>
+            <a
+              href="https://www.ds3comunicaciones.com/mikrotik/switches.html"
+              class="border-b w-full block py-2 font-medium text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm md:text-base"
+            >
+              Switches
+            </a>
+          </div>
+        </div>
+
+        <!-- Sección de contacto -->
+        <div class="mt-6">
+          <h3 class="text-lg font-bold mb-4 border-b pb-2">Contacto</h3>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-600"></i>
+              <div>
+                <p class="font-medium">533-4339</p>
+                <p class="text-sm">994-428-965</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-600"></i>
+              <div>
+                <p class="font-medium">99653-3223</p>
+                <p class="text-sm">937-514-867</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-blue-600"></i>
+              <span>netperu100@hotmail.com</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-3 text-blue-600"></i>
+              <span>Lima, PERÚ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay para menú móvil -->
+    <div
+      id="menu-overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+    ></div>
+  </nav>
+
+  <!-- SUBMENU DE MARCA -->
+  <nav class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="relative">
+      <!-- Contenedor con scroll horizontal -->
+      <div class="nav-container flex justify-evenly overflow-x-auto md:py-2 px-4 space-x-2 scrollbar-hide">
+        <!-- Item 1 -->
+        <a href="https://www.ds3comunicaciones.com/mikrotik/routerboard.html"
+          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5 hover:bg-blue-50">
+          <div class="icon-container h-6 w-6 flex items-center justify-center">
+            <i class="fas fa-router text-blue-600"></i>
+          </div>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">RouterBoard</span>
+        </a>
+
+        <!-- Item 2 -->
+        <a href="https://www.ds3comunicaciones.com/mikrotik/wireless.html"
+          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5 hover:bg-blue-50">
+          <div class="icon-container h-6 w-6 flex items-center justify-center">
+            <i class="fas fa-wifi text-blue-600"></i>
+          </div>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Wireless</span>
+        </a>
+
+        <!-- Item 3 -->
+        <a href="https://www.ds3comunicaciones.com/mikrotik/switches.html"
+          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5 hover:bg-blue-50">
+          <div class="icon-container h-6 w-6 flex items-center justify-center">
+            <i class="fas fa-network-wired text-blue-600"></i>
+          </div>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Switches</span>
+        </a>
+
+        <!-- Item 4 -->
+        <a href="https://www.ds3comunicaciones.com/mikrotik/antennas.html"
+          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5 hover:bg-blue-50">
+          <div class="icon-container h-6 w-6 flex items-center justify-center">
+            <i class="fas fa-broadcast-tower text-blue-600"></i>
+          </div>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Antenas</span>
+        </a>
+
+        <!-- Item 5 -->
+        <a href="https://www.ds3comunicaciones.com/mikrotik/accessories.html"
+          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5 hover:bg-blue-50">
+          <div class="icon-container h-6 w-6 flex items-center justify-center">
+            <i class="fas fa-tools text-blue-600"></i>
+          </div>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Accesorios</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO DEL PRODUCTO -->
+  <main class="">
+    <!-- CASCADA DE NAVEGACIÓN RESPONSIVE -->
+    <div
+      class="border px-3 py-2 text-xs md:text-sm text-slate-600 flex flex-nowrap items-center gap-1 overflow-x-auto scrollbar-hide whitespace-nowrap">
+      <a href="https://www.ds3comunicaciones.com/index.html" class="flex-shrink-0 hover:text-blue-600">
+        <i class="fa-solid fa-house text-[0.9em]"></i>
+      </a>
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
+      <a href="https://www.ds3comunicaciones.com/mikrotik/index.html"
+        class="flex-shrink-0 hover:underline hover:text-blue-600">
+        MikroTik
+      </a>
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
+      <a href="https://www.ds3comunicaciones.com/mikrotik/routerboard.html"
+        class="flex-shrink-0 hover:underline hover:text-blue-600">
+        RouterBoard
+      </a>
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
+      <span class="text-slate-800 font-medium flex-shrink-0">
+        RB750
+      </span>
+    </div>
+
+    <!-- CONTENT PRINCIPAL -->
+    <div class="mx-auto border-t">
+      <div class="flex flex-col md:flex-row md:justify-evenly mx-auto">
+        <!-- SIDEBAR DE MARCAS (oculto en móvil) -->
+        <aside
+          class="hidden lg:block bg-white p-4 rounded-lg shadow-md w-full md:w-48 lg:w-56 h-[80vh] overflow-y-auto scrollbar-hide m-2">
+          <!-- Título -->
+          <h2 class="text-lg font-bold text-gray-800 mb-4 pb-2 border-b">
+            Productos MikroTik
+          </h2>
+
+          <!-- Contenedor de categorías -->
+          <div class="space-y-3">
+            <a href="https://www.ds3comunicaciones.com/mikrotik/routerboard.html"
+              class="flex items-center p-2 rounded-md hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+              <i class="fas fa-router text-blue-600 mr-2"></i>
+              <span class="text-sm font-medium">RouterBoard</span>
+            </a>
+            
+            <a href="https://www.ds3comunicaciones.com/mikrotik/wireless.html"
+              class="flex items-center p-2 rounded-md hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+              <i class="fas fa-wifi text-blue-600 mr-2"></i>
+              <span class="text-sm font-medium">Wireless</span>
+            </a>
+            
+            <a href="https://www.ds3comunicaciones.com/mikrotik/switches.html"
+              class="flex items-center p-2 rounded-md hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+              <i class="fas fa-network-wired text-blue-600 mr-2"></i>
+              <span class="text-sm font-medium">Switches</span>
+            </a>
+            
+            <a href="https://www.ds3comunicaciones.com/mikrotik/antennas.html"
+              class="flex items-center p-2 rounded-md hover:bg-blue-50 transition-all hover:-translate-y-0.5">
+              <i class="fas fa-broadcast-tower text-blue-600 mr-2"></i>
+              <span class="text-sm font-medium">Antenas</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL DE PRODUCTOS -->
+        <div class="w-full lg:w-4/6 bg-white rounded-lg shadow m-2">
+          <div class="mx-auto max-w-[1200px] w-full p-4">
+            <!-- Contenedor principal del producto -->
+            <div id="information-section" class="mt-5 flex flex-col lg:flex-row gap-6 flex-wrap">
+              <!-- Sección de información e imágenes-->
+              <div class="w-full flex flex-col lg:flex-row gap-6">
+                <!-- Sección de imágenes -->
+                <div class="lg:w-1/2">
+                  <!-- Imagen principal -->
+                  <div class="bg-white rounded-lg shadow-sm p-4">
+                    <div class="mt-6">
+                      <h3 class="font-semibold text-lg mb-4 flex items-center">
+                        <i class="fas fa-download text-blue-600 mr-2"></i>
+                        Descargas:
+                      </h3>
+                      <div class="flex flex-wrap gap-3">
+                        <!-- Ficha técnica PDF -->
+                        <a href="https://www.ds3comunicaciones.com/mikrotik/files/RB750_datasheet.pdf"
+                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition transform hover:scale-105"
+                          target="_blank" rel="noopener noreferrer" aria-label="Descargar ficha técnica en PDF">
+                          <i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i>
+                          <span>Ficha técnica</span>
+                        </a>
+
+                        <!-- Manual PDF -->
+                        <a href="https://www.ds3comunicaciones.com/mikrotik/files/RB750_manual.pdf"
+                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition transform hover:scale-105"
+                          target="_blank" rel="noopener noreferrer" aria-label="Descargar manual en PDF">
+                          <i class="fas fa-book-open text-blue-500" aria-hidden="true"></i>
+                          <span>Manual</span>
+                        </a>
+
+                        <!-- Guía de instalación -->
+                        <a href="https://www.ds3comunicaciones.com/mikrotik/files/RB750_quickguide.pdf"
+                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition transform hover:scale-105"
+                          target="_blank" rel="noopener noreferrer" aria-label="Descargar guía de instalación">
+                          <i class="fas fa-file-alt text-green-500" aria-hidden="true"></i>
+                          <span>Guía de instalación</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sección de galería de imágenes (oculta inicialmente) -->
+            <div id="images-section" class="hidden mt-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750_front.jpg"
+                    alt="Vista frontal"
+                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
+                    onclick="viewImage(this.src)" />
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750_back.jpg"
+                    alt="Vista posterior"
+                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
+                    onclick="viewImage(this.src)" />
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750_side.jpg"
+                    alt="Vista lateral"
+                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
+                    onclick="viewImage(this.src)" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles de pestañas -->
+            <div class="flex justify-center mt-8">
+              <div class="inline-flex rounded-lg shadow-sm bg-gray-100 p-1">
+                <button id="product-tab"
+                  class="px-6 py-2 text-sm font-medium rounded-md bg-blue-600 text-white focus:z-10 focus:outline-none transition-all">
+                  Producto
+                </button>
+                <button id="images-tab"
+                  class="px-6 py-2 text-sm font-medium rounded-md bg-transparent text-gray-700 hover:bg-white focus:z-10 focus:outline-none transition-all">
+                  Imágenes
+                </button>
+              </div>
+            </div>
+
+            <!-- Secciones desplegables de información -->
+            <div class="mt-8 w-full mx-auto space-y-4">
+              <!-- Características Principales -->
+              <details open class="group border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <summary
+                  class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-150 cursor-pointer transition-colors">
+                  <h3 class="font-semibold text-black flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-blue-600 transition-transform group-open:rotate-90" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Características Principales
+                  </h3>
+                  <span class="text-blue-600 text-xs font-medium">Ver detalles</span>
+                </summary>
+                <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex items-start">
+                    <div class="flex-grow flex items-center justify-center mb-6 h-48 bg-gray-50 rounded-lg">
+                <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750G_front.jpg"
+                  alt="MikroTik RB750G"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="text-center mb-3">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    RB750G
+                  </h3>
+                  <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-semibold">
+                    GIGABIT
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Router SOHO con 5 puertos Gigabit Ethernet, CPU 680MHz Atheros, ideal para redes de alta velocidad.
+                </p>
+                <div class="text-center">
+                  <span class="text-lg font-bold text-blue-600">U$ 79</span>
+                  <a href="https://www.ds3comunicaciones.com/mikrotik/RB750G.html" 
+                     class="block mt-3 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300">
+                    Ver Producto
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 2: RB750GL -->
+          <div class="product-card group bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-6 h-48 bg-gray-50 rounded-lg">
+                <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750GL_front.jpg"
+                  alt="MikroTik RB750GL"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="text-center mb-3">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    RB750GL
+                  </h3>
+                  <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">
+                    LITE GIGABIT
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Versión económica del RB750G con 5 puertos Gigabit, mismo rendimiento a menor costo.
+                </p>
+                <div class="text-center">
+                  <span class="text-lg font-bold text-blue-600">U$ 59</span>
+                  <a href="https://www.ds3comunicaciones.com/mikrotik/RB750GL.html" 
+                     class="block mt-3 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300">
+                    Ver Producto
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 3: RB750r2 -->
+          <div class="product-card group bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-6 h-48 bg-gray-50 rounded-lg">
+                <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750r2_front.jpg"
+                  alt="MikroTik RB750r2"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="text-center mb-3">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    RB750r2 (hEX lite)
+                  </h3>
+                  <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-semibold">
+                    NUEVA GENERACIÓN
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Evolución del RB750 con mejoras en rendimiento y diseño, 5 puertos Fast Ethernet.
+                </p>
+                <div class="text-center">
+                  <span class="text-lg font-bold text-blue-600">U$ 49</span>
+                  <a href="https://www.ds3comunicaciones.com/mikrotik/RB750r2.html" 
+                     class="block mt-3 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300">
+                    Ver Producto
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 4: RB750UP -->
+          <div class="product-card group bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-6 h-48 bg-gray-50 rounded-lg">
+                <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750UP_front.jpg"
+                  alt="MikroTik RB750UP"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="text-center mb-3">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    RB750UP
+                  </h3>
+                  <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full font-semibold">
+                    PoE OUT
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Router con PoE output en 4 puertos, USB 2.0, ideal para alimentar dispositivos PoE.
+                </p>
+                <div class="text-center">
+                  <span class="text-lg font-bold text-blue-600">U$ 69</span>
+                  <a href="https://www.ds3comunicaciones.com/mikrotik/RB750UP.html" 
+                     class="block mt-3 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300">
+                    Ver Producto
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 5: RB750Gr3 -->
+          <div class="product-card group bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-6 h-48 bg-gray-50 rounded-lg">
+                <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750Gr3_front.jpg"
+                  alt="MikroTik RB750Gr3"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="text-center mb-3">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    RB750Gr3 (hEX)
+                  </h3>
+                  <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-semibold">
+                    DUAL CORE
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                  Router de doble núcleo 880MHz, 5 puertos Gigabit, USB, microSD, alto rendimiento.
+                </p>
+                <div class="text-center">
+                  <span class="text-lg font-bold text-blue-600">U$ 89</span>
+                  <a href="https://www.ds3comunicaciones.com/mikrotik/RB750Gr3.html" 
+                     class="block mt-3 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300">
+                    Ver Producto
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 6: Comparación -->
+          <div class="product-card group bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-blue-300">
+            <div class="p-6 flex flex-col h-full justify-center items-center text-center">
+              <div class="mb-4">
+                <i class="fas fa-balance-scale text-6xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  ¿No sabes cuál elegir?
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                Compara las especificaciones de todos los modelos de la serie RB750 y encuentra el ideal para tu proyecto.
+              </p>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/comparacion-rb750.html" 
+                 class="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                Comparar Modelos
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner informativo -->
+        <div class="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-xl p-8 text-center text-white">
+          <h3 class="text-2xl font-bold mb-4">
+            <i class="fas fa-shipping-fast mr-2"></i>
+            Envío gratuito en Lima y entrega en 24-48 horas
+          </h3>
+          <p class="text-blue-100 mb-6">
+            Todos nuestros productos MikroTik incluyen garantía oficial de 1 año y soporte técnico especializado
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex items-center">
+              <i class="fas fa-shield-alt mr-2"></i>
+              <span>Garantía Oficial</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-tools mr-2"></i>
+              <span>Soporte Técnico</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-truck mr-2"></i>
+              <span>Envío Rápido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 w-full">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Columna 1: Logo y contacto -->
+        <div class="space-y-6">
+          <img src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones"
+            class="w-40 h-auto" />
+
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold text-white">Síguenos</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-110">
+                <i class="fab fa-facebook-f text-2xl"></i>
+              </a>
+              <a href="https://wa.me/994428965?text=Hola necesito ayuda" target="_blank"
+                class="text-gray-300 hover:text-green-400 transition-colors transform hover:scale-110">
+                <i class="fab fa-whatsapp text-2xl"></i>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-110">
+                <i class="fab fa-linkedin text-2xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold text-white">Correo</h3>
+            <a href="mailto:netperu100@hotmail.com"
+              class="flex items-center text-gray-300 hover:text-blue-400 transition-colors">
+              <i class="fas fa-envelope mr-2"></i>
+              netperu100@hotmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Productos -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-white">Productos MikroTik</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/routerboard.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                RouterBoard
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/wireless.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Equipos Wireless
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/switches.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Switches
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/antennas.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Antenas
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/mikrotik/accessories.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Accesorios
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Soporte -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-white">Soporte</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://www.ds3comunicaciones.com/soporte.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Soporte Técnico
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/manuales.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Manuales y Guías
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ds3comunicaciones.com/configuraciones.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Configuraciones
+              </a>
+            </li>
+            <li>
+              <a href="https://ds3comunicaciones.com/us.html" target="_blank"
+                class="text-gray-300 hover:text-blue-400 hover:underline transition-colors">
+                Acerca de Nosotros
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Contacto -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-white">Contacto</h3>
+          <div class="space-y-3">
+            <a href="https://wa.me/994428965?text=Hola necesito ayuda" target="_blank"
+              class="flex items-center text-gray-300 hover:text-green-400 transition-colors">
+              <i class="fas fa-phone-alt mr-2"></i>
+              <span>994 428 965</span>
+            </a>
+            <a href="https://wa.me/996533223?text=Hola necesito ayuda" target="_blank"
+              class="flex items-center text-gray-300 hover:text-green-400 transition-colors">
+              <i class="fas fa-phone-alt mr-2"></i>
+              <span>996 533 223</span>
+            </a>
+            <div class="flex items-center text-gray-300">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <span>Lima, PERÚ</span>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <h3 class="text-lg font-bold text-white mb-2">
+              Horario de Atención
+            </h3>
+            <p class="text-gray-300">Lunes a Viernes: 9:00 - 18:00</p>
+            <p class="text-gray-300">Sábados: 9:00 - 13:00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derechos de autor -->
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+        <p>&copy; 2025 DS3 Comunicaciones. Todos los derechos reservados. | Distribuidor autorizado MikroTik en Perú</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Funcionalidad del menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const closeMenuButton = document.getElementById('close-menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.remove('-translate-x-full');
+          mobileMenu.classList.remove('hidden');
+          if (menuOverlay) menuOverlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMobileMenu);
+      }
+
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMobileMenu);
+      }
+
+      function closeMobileMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.add('-translate-x-full');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+          }, 300);
+        }
+        if (menuOverlay) menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      // Funcionalidad de las pestañas
+      const productTab = document.getElementById('product-tab');
+      const imagesTab = document.getElementById('images-tab');
+      const informationSection = document.getElementById('information-section');
+      const imagesSection = document.getElementById('images-section');
+
+      if (productTab && imagesTab) {
+        productTab.addEventListener('click', () => {
+          productTab.classList.add('bg-blue-600', 'text-white');
+          productTab.classList.remove('bg-transparent', 'text-gray-700');
+          imagesTab.classList.remove('bg-blue-600', 'text-white');
+          imagesTab.classList.add('bg-transparent', 'text-gray-700');
+          
+          if (informationSection) informationSection.classList.remove('hidden');
+          if (imagesSection) imagesSection.classList.add('hidden');
+        });
+
+        imagesTab.addEventListener('click', () => {
+          imagesTab.classList.add('bg-blue-600', 'text-white');
+          imagesTab.classList.remove('bg-transparent', 'text-gray-700');
+          productTab.classList.remove('bg-blue-600', 'text-white');
+          productTab.classList.add('bg-transparent', 'text-gray-700');
+          
+          if (informationSection) informationSection.classList.add('hidden');
+          if (imagesSection) imagesSection.classList.remove('hidden');
+        });
+      }
+
+      // Funcionalidad del modal de imágenes
+      window.viewImage = function(src) {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        if (modal && modalImage) {
+          modalImage.src = src;
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      window.closeModal = function() {
+        const modal = document.getElementById('image-modal');
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      };
+
+      window.toExchangeImage = function(element) {
+        const mainImage = document.getElementById('img_main');
+        if (mainImage && element) {
+          mainImage.src = element.src;
+        }
+      };
+
+      // Cerrar modal con ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+          closeMobileMenu();
+        }
+      });
+
+      // Smooth scroll para las secciones
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Animación de entrada para las cards de productos
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
