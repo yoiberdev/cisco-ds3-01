@@ -1,16 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Cargar el navbar
-    fetch('./components/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-            initializeNavbar();
-            initializeMobileMenu();
-            initializeSearchModal();
-            addDynamicStyles();
-        })
-        .catch(error => console.error('Error loading navbar:', error));
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('./components/navbar.html')
+    .then(r => r.text())
+    .then(data => {
+      document.body.insertAdjacentHTML('afterbegin', data);
+      initializeNavbar();
+      initializeMobileMenu();
+      initializeSearchModal();
+      addDynamicStyles();
+    })
+    .catch(error => {
+      console.error('Error loading navbar:', error);
+      /*  ▼▼  NUEVO: inicializar aunque no se haya cargado el archivo  ▼▼  */
+      initializeNavbar();
+      initializeMobileMenu();
+      initializeSearchModal();
+      addDynamicStyles();
+    });
 });
+
 
 function initializeNavbar() {
     // Menú hamburguesa (versión simplificada que será reemplazada por initializeMobileMenu)
